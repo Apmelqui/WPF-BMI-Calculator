@@ -5,11 +5,93 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment04_Adriano_Melquiades"
         mc:Ignorable="d"
-        Title="MainWindow" SizeToContent="WidthAndHeight">
-    <!--Height="450" Width="800"-->
+        Title="MainWindow" SizeToContent="WidthAndHeight" Height="800" Width="800">
+    <!--SizeToContent="WidthAndHeight"-->
+
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <!--First Pane-->
+        <StackPanel Grid.Column="0" Margin="20">
+            <Label BorderThickness="1" BorderBrush="black">
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="100" Height="60" Source="C:\Users\apmel\OneDrive\IDEs\Visual-Studio-Files\C#\Assignment04-Adriano_Melquiades\Assignment04-Adriano_Melquiades\img\startImage.jpg"/>
+                    <Label Content="BMI Calculator" FontSize="38" />
+                </StackPanel>
+            </Label>
+
+            <Label>      
+                <StackPanel Width="300">
+                    
+                    <TextBlock Text="Gender" Width="150" Margin="0 0 0 20"/>
+                    <TextBox Name="txtGender" Width="150" Background="LightGray" Margin="0 0 0 20"/>
+
+                    <TextBlock Text="Age" Width="150" Margin="0 0 0 20"/>
+                    <TextBox Name="txtAge" Width="150" Background="LightGray" Margin="0 0 0 20"/>
+
+                    <TextBlock Text="Height" Width="150" Margin="0 0 0 20"/>
+                    <TextBox Name="txtHeight" Width="150" Background="LightGray" Margin="0 0 0 20"/>
+
+                    <TextBlock Text="Weight" Width="150" Margin="0 0 0 20"/>
+                    <TextBox Name="txtWeight" Width="150" Background="LightGray" Margin="0 0 0 20"/>
+                </StackPanel>
+            </Label>
+
+
+            <Label FontSize="16" FontFamily="Arial" Margin="0 10 0 0">Please select your activity level:</Label>
+
+            <RadioButton GroupName="activityLevel">I am sedentary (little or no exercice)</RadioButton>
+            <RadioButton GroupName="activityLevel">I am lightly active (light exercise or sports 1-3 days per week)</RadioButton>
+            <RadioButton GroupName="activityLevel">I am moderately active (moderate exercise or sports 3-5 days per week)</RadioButton>
+            <RadioButton GroupName="activityLevel">I am very active (hard exercise or sports 6-7 days per week)</RadioButton>
+            <RadioButton GroupName="activityLevel">I am super active(very hard exercise or sports and physical job or 2x training)</RadioButton>
+
+
+            <StackPanel Margin="0 10 0 0" >
+                <TextBox Height="50" SpellCheck.IsEnabled="True" Language="en-Ca" TextWrapping="Wrap">
+                    Input notes
+                </TextBox>
+            </StackPanel>
+
+            <Button Name="BtnCalculate" Content="Calculate BMI" Margin="0 20 0 0"/>
+
+
+
+
+
+
+
+            <Button Name="BtnToTest" Click="BtnToTest_Click">Test Button</Button>
+            <Label Name="labelTest">Test</Label>
+
+
+        </StackPanel>
+
+
+        <StackPanel Grid.Column="1" Margin="20">
+
+            <Button Click="Button_Click">Read</Button>
+        </StackPanel>
+        
+        
+        
+        
+        
+        
+    </Grid>
+
+
+
+
+
+    <!--<Grid>
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width='auto'/>
             <ColumnDefinition Width='auto'/>
             <ColumnDefinition Width='auto'/>
             <ColumnDefinition Width="20"/>
@@ -89,6 +171,7 @@
         <Button Name="BtnCalculate" Grid.Column="1" Grid.Row="12" Content="Calculate BMI" Margin="0 20 0 0"/>
 
 
+   
 
-    </Grid>
+    </Grid>-->
 </Window>
