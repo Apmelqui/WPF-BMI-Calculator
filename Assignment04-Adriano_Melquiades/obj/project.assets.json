@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\apmel\\OneDrive\\IDEs\\Visual-Studio-Files\\C#\\Assignment04-Adriano_Melquiades\\Assignment04-Adriano_Melquiades\\Assignment04-Adriano_Melquiades.csproj",
+      "projectUniqueName": "C:\\Users\\apmel\\OneDrive\\IDEs\\Visual-Studio-Files\\C#\\CentennialProgramming02\\antigo-Assignment04\\Assignment04-Adriano_Melquiades\\Assignment04-Adriano_Melquiades.csproj",
       "projectName": "Assignment04-Adriano_Melquiades",
-      "projectPath": "C:\\Users\\apmel\\OneDrive\\IDEs\\Visual-Studio-Files\\C#\\Assignment04-Adriano_Melquiades\\Assignment04-Adriano_Melquiades\\Assignment04-Adriano_Melquiades.csproj",
+      "projectPath": "C:\\Users\\apmel\\OneDrive\\IDEs\\Visual-Studio-Files\\C#\\CentennialProgramming02\\antigo-Assignment04\\Assignment04-Adriano_Melquiades\\Assignment04-Adriano_Melquiades.csproj",
       "packagesPath": "C:\\Users\\apmel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\apmel\\OneDrive\\IDEs\\Visual-Studio-Files\\C#\\Assignment04-Adriano_Melquiades\\Assignment04-Adriano_Melquiades\\obj\\",
+      "outputPath": "C:\\Users\\apmel\\OneDrive\\IDEs\\Visual-Studio-Files\\C#\\CentennialProgramming02\\antigo-Assignment04\\Assignment04-Adriano_Melquiades\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\apmel\\AppData\\Roaming\\NuGet\\NuGet.Config",
