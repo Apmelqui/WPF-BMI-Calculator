@@ -7,7 +7,9 @@ using System.Windows;
 
 namespace Assignment04_Adriano_Melquiades {
     public class BMIData {
-        public DateTime Date { get; set; }
+        private static int counter = 1;
+
+        public string BMIDataNumber { get; set; }
 
         public string Gender { get; set; }
 
@@ -19,12 +21,22 @@ namespace Assignment04_Adriano_Melquiades {
 
         public double BMI { get; set; }
 
-        public BMIData(DateTime date, string gender, int age, double height, double weight) {
-            this.Date = date;
+        public BMIData(string gender, int age, double height, double weight, double bmi) {
+            this.BMIDataNumber = $"BMI-{counter}";
             this.Gender = gender;
             this.Age = age;
             this.Height = height;
             this.Weight = weight;
+            this.BMI = bmi;
+            counter++;
+        }
+
+        public override string ToString() {
+            return $"BMIDataNumber: {this.BMIDataNumber}\n" +
+                   $"Gender: {this.Gender}\n" +
+                   $"Age: {this.Age}\n" +
+                   $"Height: {this.Height}\n" +
+                   $"Weight: {this.Weight}\n";
         }
 
         //public enum GenderType {

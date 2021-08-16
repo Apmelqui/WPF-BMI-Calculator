@@ -8,7 +8,7 @@
         Title="MainWindow" SizeToContent="WidthAndHeight">
     <!--SizeToContent="WidthAndHeight" Height="900" Width="800"-->
 
-    <Grid>
+    <Grid  Background="LightGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -24,8 +24,16 @@
                 </StackPanel>
             </Label>
 
-            <Label>      
+            <Label BorderThickness="1" BorderBrush="black">
                 <StackPanel Width="300">
+
+
+                    <ListBox Name="unit" Width="200" SelectionMode="Single">
+                        <ListBoxItem>Metric - (meters - Kg) </ListBoxItem>
+                        <ListBoxItem>Imperial (inches - pounds</ListBoxItem>          
+                    </ListBox>
+
+                    
 
                     <RadioButton GroupName="unit" Name="radioMetric">Metric</RadioButton>
                     <RadioButton GroupName="unit" Name="radioImperial">Imperial</RadioButton>
@@ -33,39 +41,42 @@
                     <RadioButton Margin="0 10 0 0" GroupName="gender" Name="radioMale">Male</RadioButton>
                     <RadioButton GroupName="gender" Name="radioFemale">Female</RadioButton>
 
-                                                           
+
 
                     <TextBlock Text="Age" Width="150" Margin="0 0 0 10"/>
-                    <TextBox Name="txtAge" Width="150" Background="LightGray" Margin="0 0 0 20"/>
+                    <TextBox Name="txtAge" Width="150" Background="white" Margin="0 0 0 20"/>
 
                     <TextBlock Text="Height" Width="150" Margin="0 0 0 10"/>
-                    <TextBox Name="txtHeight" Width="150" Background="LightGray" Margin="0 0 0 20"/>
+                    <TextBox Name="txtHeight" Width="150" Background="white" Margin="0 0 0 20"/>
 
                     <TextBlock Text="Weight" Width="150" Margin="0 0 0 10"/>
-                    <TextBox Name="txtWeight" Width="150" Background="LightGray" Margin="0 0 0 20"/>
+                    <TextBox Name="txtWeight" Width="150" Background="white" Margin="0 0 0 20"/>
                 </StackPanel>
             </Label>
-        
 
-            <StackPanel Margin="0 10 0 0" >
+
+            <!--<StackPanel Margin="0 10 0 0" >
                 <TextBox Height="50" SpellCheck.IsEnabled="True" Language="en-Ca" TextWrapping="Wrap">
                     Input notes
                 </TextBox>
+            </StackPanel>-->
+
+            <StackPanel>
+                    <Button Name="BtnCalculate" Background="white" Content="Calculate BMI" Margin="0 20 0 0" Click="BtnCalculate_Click"/>
+                    <Button Name="BtnReset" Background="white" Content="Reset" Margin="0 20 0 0" Click="BtnReset_Click"/>
+                    <Button Name="BtnExit" Background="white" Content="Exit application" Margin="0 20 0 0" Click="BtnExit_Click"/>
+
+                    <TextBlock Text="Result" Width="150" Margin="0 0 0 20"/>
+                <TextBox Name="txtResult" Width="150" Background="white" Margin="0 0 0 20"/>             
             </StackPanel>
 
-            <Button Name="BtnCalculate" Content="Calculate BMI" Margin="0 20 0 0" Click="BtnCalculate_Click"/>
-            <Button Name="BtnReset" Content="Reset" Margin="0 20 0 0" Click="BtnReset_Click"/>
-            <Button Name="BtnExit" Content="Exit application" Margin="0 20 0 0" Click="BtnExit_Click"/>
-
-            <TextBlock Text="Result" Width="150" Margin="0 0 0 20"/>
-            <TextBox Name="txtResult" Width="150" Background="LightGray" Margin="0 0 0 20"/>
 
 
 
 
         </StackPanel>
 
-
+        <!--Second pane-->
         <StackPanel Grid.Column="1" Margin="20">
 
 
@@ -77,13 +88,25 @@
             </Label>
 
 
+            <Label Content="Please, enter filename to open" HorizontalAlignment="Center"/>
+            <TextBox Name="txtFileToOpen"  TextWrapping="Wrap" Width="120"/>
 
-            <Label Name="result">Result</Label>
-            
+
+            <Label Content="Age" HorizontalAlignment="Center"/>
+            <TextBox TextWrapping="Wrap" Width="120"/>
+            <Label Content="Height" HorizontalAlignment="Center"/>
+            <TextBox TextWrapping="Wrap" Width="120"/>
+            <Label Content="Weight" HorizontalAlignment="Center"/>
+            <TextBox TextWrapping="Wrap" Width="120"/>
+
+
+
+
+
             <!--<Button Click="Button_Click">Read</Button>-->
         </StackPanel>
 
-        
+
 
 
 
