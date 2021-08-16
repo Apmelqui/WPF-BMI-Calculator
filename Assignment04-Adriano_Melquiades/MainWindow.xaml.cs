@@ -87,7 +87,7 @@ namespace Assignment04_Adriano_Melquiades {
                     MessageBox.Show("Error. Wrong gender input", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                txtResult.Text = Convert.ToString(BMI);
+                //txtResult.Text = Convert.ToString(BMI);
             }
 
 
@@ -102,21 +102,21 @@ namespace Assignment04_Adriano_Melquiades {
                     MessageBox.Show("Error. Wrong gender input", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                txtResult.Text = Convert.ToString(BMI);
+                //txtResult.Text = Convert.ToString(BMI);
             }
 
+            
+            txtResult.Text = BMI.ToString("#.##");
 
-
-
-
-
-
-            txtResult.Text = Convert.ToString(BMI);
 
             var data = new BMIData(gender, age, height, weight, BMI);
 
 
-            //BMIServices.Create(data);
+            try {
+                BMIServices.Create(data);
+            } catch (Exception ex) {
+                MessageBox.Show(ex.Message, "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
         }
 
@@ -125,6 +125,12 @@ namespace Assignment04_Adriano_Melquiades {
             txtAge.Clear();
             txtHeight.Clear();
             txtWeight.Clear();
+            txtResult.Clear();
+            radioMale.IsChecked = false;
+            radioFemale.IsChecked = false;
+
+            radioMetric.IsChecked = false;
+            radioImperial.IsChecked = false;
 
 
             //radioMetric.Checked = false;

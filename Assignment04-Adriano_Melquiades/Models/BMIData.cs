@@ -21,6 +21,9 @@ namespace Assignment04_Adriano_Melquiades {
 
         public double BMI { get; set; }
 
+        public BMIData() {
+
+        }
         public BMIData(string gender, int age, double height, double weight, double bmi) {
             this.BMIDataNumber = $"BMI-{counter}";
             this.Gender = gender;

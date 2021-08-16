@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<BMIData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BMIDataNumber>BMI-4</BMIDataNumber>
+  <Gender>male</Gender>
+  <Age>43</Age>
+  <Height>1.8</Height>
+  <Weight>70</Weight>
+  <BMI>1639.075</BMI>
+</BMIData>

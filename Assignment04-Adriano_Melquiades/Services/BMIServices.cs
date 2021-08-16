@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace Assignment04_Adriano_Melquiades.Services {
-    class BMIServices {
-        private string root = $@"C:\_test\";
+    public static class BMIServices {
+        private static string root = $@"C:\_test\Assignment04";
 
-		public void Create(BMIData BMIData) {
-			string filename = $@"{this.root}{BMIData.BMIDataNumber}.xml";
+		public static void Create(BMIData BMIData) {
+			string filename = $@"{root}-{BMIData.BMIDataNumber}.xml";
 
 			if (File.Exists(filename))
-				throw new Exception($"There is already a record for account guid {BMIData.BMIDataNumber}. Account {BMIData.BMIDataNumber} not saved. Try to save this account again later.");
+				throw new Exception($"There is already a record for DataNumber {BMIData.BMIDataNumber}. Data {BMIData.BMIDataNumber} not saved.");
 
 			var serializer = new XmlSerializer(typeof(BMIData));
 
@@ -23,7 +23,7 @@ namespace Assignment04_Adriano_Melquiades.Services {
 					serializer.Serialize(stream, BMIData);
 				}
 			} catch (Exception e) {
-				throw new Exception($"Fatal error ocurred while trying to save account {BMIData.BMIDataNumber}. Account {BMIData.BMIDataNumber} not saved. {e.Message}");
+				throw new Exception($"Fatal error ocurred while trying to save DataNumber {BMIData.BMIDataNumber}. Data {BMIData.BMIDataNumber} not saved. {e.Message}");
 			}
 		}
 
