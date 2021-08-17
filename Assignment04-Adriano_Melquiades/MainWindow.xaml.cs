@@ -27,6 +27,8 @@ namespace Assignment04_Adriano_Melquiades {
             BtnCalculate.MouseEnter += BtnMouseEnter;
             BtnCalculate.MouseLeave += BtnMouseLeave;
 
+            Initialize();
+
         }
 
 
@@ -117,7 +119,9 @@ namespace Assignment04_Adriano_Melquiades {
             } catch (Exception ex) {
                 MessageBox.Show(ex.Message, "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
+            txtFilesToOpen.ItemsSource = new List<BMIData>();
+            
+            txtFilesToOpen.ItemsSource = BMIServices.GetAll();
         }
 
 
@@ -139,7 +143,7 @@ namespace Assignment04_Adriano_Melquiades {
             //radioMale.Checked = false;
             //radioFemale.Checked = false;
 
-
+            
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e) {
@@ -147,11 +151,31 @@ namespace Assignment04_Adriano_Melquiades {
         }
 
 
+        private void Initialize() {
+            txtFilesToOpen.ItemsSource = BMIServices.GetAll();           
+            
+        }
+
+        private void txtFilesToOpen_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            //MessageBox.Show(txtFilesToOpen.SelectedItem.ToString());
+
+            var selectedItem = (BMIData)txtFilesToOpen.SelectedItem;
+
+            ResultAge.Text = selectedItem.Age.ToString();
+            ResultHeight.Text = selectedItem.Height.ToString();
+            ResultWeight.Text = selectedItem.Weight.ToString();
 
 
+        }
 
+        private void btnUpdate_Click(object sender, RoutedEventArgs e) {
+            //txtFilesToOpen.SelectedIndex
+            MessageBox.Show(txtFilesToOpen.SelectedItem.ToString());
 
-
+        }
     }
 
 }
+
+
+

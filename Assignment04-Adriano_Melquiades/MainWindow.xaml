@@ -29,8 +29,8 @@
 
 
                     <ListBox Name="unit" Width="200" SelectionMode="Single">
-                        <ListBoxItem>Metric - (meters - Kg) </ListBoxItem>
-                        <ListBoxItem>Imperial (inches - pounds</ListBoxItem>          
+                        <ListBoxItem Name="ListBoxMetric">Metric - (meters - Kg)</ListBoxItem>
+                        <ListBoxItem Name="ListBoxImperial" >Imperial (inches - pounds</ListBoxItem>          
                     </ListBox>
 
                     
@@ -89,19 +89,21 @@
 
 
             <Label Content="Please, enter filename to open" HorizontalAlignment="Center"/>
-            <TextBox Name="txtFileToOpen"  TextWrapping="Wrap" Width="120"/>
+            <DataGrid Name="txtFilesToOpen" IsReadOnly="true" SelectionChanged="txtFilesToOpen_SelectionChanged"></DataGrid>
+            <!--<TextBox Name="txtFilesToOpen" TextWrapping="Wrap" Width="120"/>-->
 
 
             <Label Content="Age" HorizontalAlignment="Center"/>
-            <TextBox TextWrapping="Wrap" Width="120"/>
+            <TextBox Name="ResultAge" TextWrapping="Wrap" Width="120"/>
             <Label Content="Height" HorizontalAlignment="Center"/>
-            <TextBox TextWrapping="Wrap" Width="120"/>
+            <TextBox Name="ResultHeight" TextWrapping="Wrap" Width="120"/>
             <Label Content="Weight" HorizontalAlignment="Center"/>
-            <TextBox TextWrapping="Wrap" Width="120"/>
+            <TextBox Name="ResultWeight" TextWrapping="Wrap" Width="120"/>
 
 
+            
 
-
+            <Button Name="btnUpdate" Background="white" Margin="0 20 0 0" Content="Update" Click="btnUpdate_Click"/>
 
             <!--<Button Click="Button_Click">Read</Button>-->
         </StackPanel>

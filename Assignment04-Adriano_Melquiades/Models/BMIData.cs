@@ -25,7 +25,7 @@ namespace Assignment04_Adriano_Melquiades {
 
         }
         public BMIData(string gender, int age, double height, double weight, double bmi) {
-            this.BMIDataNumber = $"BMI-{counter}";
+            this.BMIDataNumber = $"BMI-{Guid.NewGuid().ToString()}";
             this.Gender = gender;
             this.Age = age;
             this.Height = height;
