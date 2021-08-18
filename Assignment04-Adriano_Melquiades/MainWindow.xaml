@@ -28,10 +28,15 @@
                 <StackPanel Width="300">
 
 
-                    <ListBox Name="unit" Width="200" SelectionMode="Single">
+                    <!--<ListBox Name="unit" Width="200" SelectionMode="Single">
                         <ListBoxItem Name="ListBoxMetric">Metric - (meters - Kg)</ListBoxItem>
                         <ListBoxItem Name="ListBoxImperial" >Imperial (inches - pounds</ListBoxItem>          
-                    </ListBox>
+                    </ListBox>-->
+
+                    <ComboBox Name="comboBox">
+                        <ComboBoxItem Name="comboMetric" Content="Metric - (meters - Kg)" ></ComboBoxItem>
+                        <ComboBoxItem Name="comboImperial" Content="Imperial (inches - pounds"></ComboBoxItem>
+                    </ComboBox>
 
                     
 
@@ -88,7 +93,7 @@
             </Label>
 
 
-            <Label Content="Please, enter filename to open" HorizontalAlignment="Center"/>
+            <Label Content="Please, select filename to open" HorizontalAlignment="Center"/>
             <DataGrid Name="txtFilesToOpen" IsReadOnly="true" SelectionChanged="txtFilesToOpen_SelectionChanged"></DataGrid>
             <!--<TextBox Name="txtFilesToOpen" TextWrapping="Wrap" Width="120"/>-->
 
@@ -104,6 +109,8 @@
             
 
             <Button Name="btnUpdate" Background="white" Margin="0 20 0 0" Content="Update" Click="btnUpdate_Click"/>
+
+            <Button Name="btnDelete" Background="white" Margin="0 20 0 0" Content="Delete" Click="btnDelete_Click"/>
 
             <!--<Button Click="Button_Click">Read</Button>-->
         </StackPanel>
