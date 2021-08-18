@@ -62,6 +62,8 @@ namespace Assignment04_Adriano_Melquiades {
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "5.0.6.0")]
         public static void Main() {
+            SplashScreen splashScreen = new SplashScreen("img/splashscreen.jpg");
+            splashScreen.Show(true);
             Assignment04_Adriano_Melquiades.App app = new Assignment04_Adriano_Melquiades.App();
             app.InitializeComponent();
             app.Run();

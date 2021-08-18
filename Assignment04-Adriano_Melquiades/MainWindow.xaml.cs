@@ -150,7 +150,13 @@ namespace Assignment04_Adriano_Melquiades {
             ResultWeight.Clear();
 
             //txtFilesToOpen.Items.Clear();
-            
+
+
+            //txtFilesToOpen.itemsControl.ItemsSource();
+
+            //txtFilesToOpen.ItemsSource = new List<BMIData>();
+            txtFilesToOpen.ItemsSource = BMIServices.GetAll();
+
 
             radioMetric.IsChecked = false;
             radioImperial.IsChecked = false;
@@ -177,16 +183,22 @@ namespace Assignment04_Adriano_Melquiades {
         private void Initialize() {
             txtFilesToOpen.ItemsSource = BMIServices.GetAll();
 
+
         }
 
         private void txtFilesToOpen_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             //MessageBox.Show(txtFilesToOpen.SelectedItem.ToString());
 
-            var selectedItem = (BMIData)txtFilesToOpen.SelectedItem;
+            if (txtFilesToOpen.SelectedItem != null) {
+                var selectedItem = (BMIData)txtFilesToOpen.SelectedItem;
 
-            ResultAge.Text = selectedItem.Age.ToString();
-            ResultHeight.Text = selectedItem.Height.ToString();
-            ResultWeight.Text = selectedItem.Weight.ToString();
+                ResultAge.Text = selectedItem.Age.ToString();
+                ResultHeight.Text = selectedItem.Height.ToString();
+                ResultWeight.Text = selectedItem.Weight.ToString();
+
+
+            }
+
 
 
         }
