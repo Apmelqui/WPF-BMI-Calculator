@@ -32,6 +32,23 @@ namespace Assignment04_Adriano_Melquiades {
             this.Weight = weight;
             this.BMI = bmi;
             counter++;
+
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+
+            dict.Add("BMIDataNumber", this.BMIDataNumber);
+            dict.Add("Gender", gender);
+
+            Dictionary<string, double> dict2 = new Dictionary<string, double>();
+
+            dict2.Add("Height", height);
+            dict2.Add("Weight", weight);
+            dict2.Add("BMI", bmi);
+
+            MessageBox.Show($"BMI for {dict["Gender"]}\n" +
+                            $"Height: {dict2["Height"]}\n" +
+                            $"Weight: {dict2["Weight"]}\n" +
+                            $"BMI:  {dict2["BMI"]}\n" +
+                            $"Created sucessfully!");
         }
 
         public override string ToString() {

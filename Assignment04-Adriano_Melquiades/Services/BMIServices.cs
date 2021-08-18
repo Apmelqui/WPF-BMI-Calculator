@@ -17,6 +17,7 @@ namespace Assignment04_Adriano_Melquiades.Services {
 			//if (File.Exists(filename))
 			//	throw new Exception($"There is already a record for DataNumber {BMIData.BMIDataNumber}. Data {BMIData.BMIDataNumber} not saved.");
 
+
 			var serializer = new XmlSerializer(typeof(BMIData));
 
 			try {
@@ -29,6 +30,9 @@ namespace Assignment04_Adriano_Melquiades.Services {
 		}
 
 		public static List<BMIData> GetAll() {
+			if (!Directory.Exists(root))
+				Directory.CreateDirectory(root);
+
 			BMIList = new List<BMIData>();
 			var files = Directory.GetFiles(root, "*.xml");
 
@@ -54,7 +58,7 @@ namespace Assignment04_Adriano_Melquiades.Services {
 				File.Delete(fileToDelete);
 		}
 
-		public static void Update(BMIData obj) {
+		public static void Update(BMIData obj) {			
 			string filename = $@"{root}\{obj.BMIDataNumber}.xml";
 			Delete(obj);
 			Create(obj);

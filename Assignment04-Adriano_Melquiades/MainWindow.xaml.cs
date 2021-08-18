@@ -92,10 +92,10 @@ namespace Assignment04_Adriano_Melquiades {
 
 
             string selectedOption = selection.Content.ToString();
-
+            //MessageBox.Show(selectedOption);
 
             //Metric
-            if ((bool)radioMetric.IsChecked) {
+            if (selectedOption == "Metric - (meters - Kg)") {
                 if ((bool)radioMale.IsChecked) {
                     gender = "male";
                     BMI = 66.5 + 13.75 * weight + 5.003 * height * 100 - 6.755 * age;
@@ -109,7 +109,7 @@ namespace Assignment04_Adriano_Melquiades {
                 //txtResult.Text = Convert.ToString(BMI);
             }
             //Imperial
-            else if ((bool)radioImperial.IsChecked) {
+            else if (selectedOption == "Imperial (inches - pounds") {
                 if ((bool)radioMale.IsChecked) {
                     BMI = 66 + 6.2 * weight + 12.7 * height - 6.76 * age;
                 } else if ((bool)radioFemale.IsChecked) {
@@ -158,21 +158,12 @@ namespace Assignment04_Adriano_Melquiades {
             txtFilesToOpen.ItemsSource = BMIServices.GetAll();
 
 
-            radioMetric.IsChecked = false;
-            radioImperial.IsChecked = false;
+            //radioMetric.IsChecked = false;
+            //radioImperial.IsChecked = false;
         }
 
         private void BtnReset_Click(object sender, RoutedEventArgs e) {
-            Reset();
-
-
-            //radioMetric.Checked = false;
-            //radioImperial.Checked = false;
-
-            //radioMale.Checked = false;
-            //radioFemale.Checked = false;
-
-
+            this.Reset();
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e) {
@@ -195,12 +186,7 @@ namespace Assignment04_Adriano_Melquiades {
                 ResultAge.Text = selectedItem.Age.ToString();
                 ResultHeight.Text = selectedItem.Height.ToString();
                 ResultWeight.Text = selectedItem.Weight.ToString();
-
-
             }
-
-
-
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e) {

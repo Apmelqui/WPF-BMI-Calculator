@@ -19,8 +19,9 @@
         <StackPanel Grid.Column="0" Margin="20,20,10,11">
             <Label BorderThickness="1" BorderBrush="black">
                 <StackPanel Orientation="Horizontal">
-                    <Image Width="100" Height="60" Source="C:\Users\apmel\OneDrive\IDEs\Visual-Studio-Files\C#\Assignment04-Adriano_Melquiades\Assignment04-Adriano_Melquiades\img\startImage.jpg"/>
-                    <Label Content="BMI Calculator" FontSize="38" />
+                    <Image Width="100" Height="60" Source="C:\Users\apmel\OneDrive\IDEs\Visual-Studio-Files\C#\CentennialProgramming02\Assignment04-AdrianoMelquiades\Assignment04-Adriano_Melquiades\img\startImage.jpg"/>
+                    
+                    <Label Content="BMR Calculator" FontSize="38" />
                 </StackPanel>
             </Label>
 
@@ -33,6 +34,7 @@
                         <ListBoxItem Name="ListBoxImperial" >Imperial (inches - pounds</ListBoxItem>          
                     </ListBox>-->
 
+                    <Label Content="Please select a unit system below"></Label>
                     <ComboBox Name="comboBox">
                         <ComboBoxItem Name="comboMetric" Content="Metric - (meters - Kg)" ></ComboBoxItem>
                         <ComboBoxItem Name="comboImperial" Content="Imperial (inches - pounds"></ComboBoxItem>
@@ -40,8 +42,8 @@
 
                     
 
-                    <RadioButton GroupName="unit" Name="radioMetric">Metric</RadioButton>
-                    <RadioButton GroupName="unit" Name="radioImperial">Imperial</RadioButton>
+                    <!--<RadioButton GroupName="unit" Name="radioMetric">Metric</RadioButton>
+                    <RadioButton GroupName="unit" Name="radioImperial">Imperial</RadioButton>-->
 
                     <RadioButton Margin="0 10 0 0" GroupName="gender" Name="radioMale">Male</RadioButton>
                     <RadioButton GroupName="gender" Name="radioFemale">Female</RadioButton>
@@ -71,7 +73,8 @@
                     <Button Name="BtnReset" Background="white" Content="Reset" Margin="0 20 0 0" Click="BtnReset_Click"/>
                     <Button Name="BtnExit" Background="white" Content="Exit application" Margin="0 20 0 0" Click="BtnExit_Click"/>
 
-                    <TextBlock Text="Result" Width="150" Margin="0 0 0 20"/>
+                    
+                    <TextBlock Text="Result BMR:" Width="150" Margin="0 20 0 0" TextAlignment="Center"/>
                 <TextBox Name="txtResult" Width="150" Background="white" Margin="0 0 0 20"/>             
             </StackPanel>
 
@@ -87,13 +90,13 @@
 
             <Label BorderThickness="1" BorderBrush="black">
                 <StackPanel Orientation="Horizontal">
-                    <Image Width="100" Height="60" Source="C:\Users\apmel\OneDrive\IDEs\Visual-Studio-Files\C#\Assignment04-Adriano_Melquiades\Assignment04-Adriano_Melquiades\img\startImage.jpg"/>
-                    <Label Content="BMI Results" FontSize="38" />
+                    <Image Width="100" Height="60" Source="C:\Users\apmel\OneDrive\IDEs\Visual-Studio-Files\C#\CentennialProgramming02\Assignment04-AdrianoMelquiades\Assignment04-Adriano_Melquiades\img\startImage.jpg"/>
+                    <Label Content="BMR Results" FontSize="38" />
                 </StackPanel>
             </Label>
 
 
-            <Label Content="Please, select filename to open" HorizontalAlignment="Center"/>
+            <Label Content="Please, select filename to open and edit" HorizontalAlignment="Center"/>
             <DataGrid Name="txtFilesToOpen" IsReadOnly="true" SelectionChanged="txtFilesToOpen_SelectionChanged"></DataGrid>
             <!--<TextBox Name="txtFilesToOpen" TextWrapping="Wrap" Width="120"/>-->
 
@@ -113,6 +116,28 @@
             <Button Name="btnDelete" Background="white" Margin="0 20 0 0" Content="Delete" Click="btnDelete_Click"/>
 
             <!--<Button Click="Button_Click">Read</Button>-->
+
+
+            <Label HorizontalAlignment="Center">---------------Query Buttons------------------</Label>
+            
+
+            <Button Name="btnNormal" Background="white" Margin="0 5 0 0" Content="Normal"/>
+            <Button Name="btnUnderWeight" Background="white" Margin="0 20 0 0" Content="Under Weight"/>
+            <Button Name="btnOverWeight" Background="white" Margin="0 20 0 0" Content="Over Weight"/>
+
+            
+            <Label Content="Age" HorizontalAlignment="Center"/>
+            <TextBox Name="queryResultAge" TextWrapping="Wrap" Width="120"/>
+            <Label Content="Height" HorizontalAlignment="Center"/>
+            <TextBox Name="queryResultHeight" TextWrapping="Wrap" Width="120"/>
+            <Label Content="Weight" HorizontalAlignment="Center"/>
+            <TextBox Name="queryResultWeight" TextWrapping="Wrap" Width="120"/>
+            
+            
+            
+                
+
+
         </StackPanel>
 
 
