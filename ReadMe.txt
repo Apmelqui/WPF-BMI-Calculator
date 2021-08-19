@@ -1,6 +1,6 @@
-BMI Calculator
+BMR Calculator
 
-BMI calculator is a program to calculate the BMI of a person based on the gender, age, weight and height.
+BMR calculator is a program to calculate the BMR (Basal Metabolic Rate) of a person based on the gender, age, weight and height.
 
 It can be calculated in metric or imperial system.
 
@@ -25,12 +25,13 @@ A Delete Button.
 
 I used a List to store all the BMI data in the BMIService class.
 I used a Dictionary (as a requirement) in the BMIData cosntructor to present a message that the data was sucessfully created.
+I used a generic class in the Update method (as a erquirement)
 
 All the data that were previously created will be uploaded in the DataGrid on the right pane.
 
 All the data files are stores as a .xml file and each record has its own file.
 
-
+I also used 4 query buttons. One for BMI less than 1500, one to get the maximum BMI, one for the minimum and another one for the average. All you need to do is press the button and it will show the result on the screen.
 
 Some technical difficultties:
 - How to input an image in the application
@@ -39,6 +40,8 @@ Some technical difficultties:
 - How to creat an Reset and Exit Button
 
 I created a class called BMIData that contains all the information to calculate the BMI and a service static class called BMIServices that contains the CRUD method.
+
+
 
 
 

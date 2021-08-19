@@ -58,10 +58,12 @@ namespace Assignment04_Adriano_Melquiades.Services {
                 File.Delete(fileToDelete);
         }
 
-        public static void Update(BMIData obj) {
-            string filename = $@"{root}\{obj.BMIDataNumber}.xml";
-            Delete(obj);
-            Create(obj);
+        //using a 
+        public static void Update<T>(T obj) {
+            var myData = (BMIData)Convert.ChangeType(obj, typeof(BMIData));
+            string filename = $@"{root}\{myData.BMIDataNumber}.xml";
+            Delete(myData);
+            Create(myData);
         }
 
         public static int Under1500() {

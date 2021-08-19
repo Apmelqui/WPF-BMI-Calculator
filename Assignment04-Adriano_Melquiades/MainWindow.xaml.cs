@@ -105,29 +105,24 @@ namespace Assignment04_Adriano_Melquiades {
                 } else {
                     MessageBox.Show("Error. Wrong gender input", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-
-                //txtResult.Text = Convert.ToString(BMI);
             }
+
             //Imperial
             else if (selectedOption == "Imperial (inches - pounds") {
                 if ((bool)radioMale.IsChecked) {
+                    gender = "male";
                     BMI = 66 + 6.2 * weight + 12.7 * height - 6.76 * age;
                 } else if ((bool)radioFemale.IsChecked) {
+                    gender = "female";
                     BMI = 655 + 4.35 * weight + 4.7 * height - 4.7 * age;
                 } else {
                     MessageBox.Show("Error. Wrong gender input", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-
-                //txtResult.Text = Convert.ToString(BMI);
             }
 
-
-            txtResult.Text = BMI.ToString("#.##");
-
-            
+            txtResult.Text = BMI.ToString("#.##");           
 
             var data = new BMIData(gender, age, height, weight, BMI, selectedOption);
-
 
             try {
                 BMIServices.Create(data);
@@ -137,6 +132,8 @@ namespace Assignment04_Adriano_Melquiades {
             txtFilesToOpen.ItemsSource = new List<BMIData>();
 
             txtFilesToOpen.ItemsSource = BMIServices.GetAll();
+
+            Reset();
         }
 
         private void Reset() {
@@ -150,17 +147,7 @@ namespace Assignment04_Adriano_Melquiades {
             ResultHeight.Clear();
             ResultWeight.Clear();
 
-            //txtFilesToOpen.Items.Clear();
-
-
-            //txtFilesToOpen.itemsControl.ItemsSource();
-
-            //txtFilesToOpen.ItemsSource = new List<BMIData>();
             txtFilesToOpen.ItemsSource = BMIServices.GetAll();
-
-
-            //radioMetric.IsChecked = false;
-            //radioImperial.IsChecked = false;
         }
 
         private void BtnReset_Click(object sender, RoutedEventArgs e) {
@@ -171,15 +158,11 @@ namespace Assignment04_Adriano_Melquiades {
             this.Close();
         }
 
-
         private void Initialize() {
             txtFilesToOpen.ItemsSource = BMIServices.GetAll();
-
-
         }
 
         private void txtFilesToOpen_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            //MessageBox.Show(txtFilesToOpen.SelectedItem.ToString());
 
             if (txtFilesToOpen.SelectedItem != null) {
                 var selectedItem = (BMIData)txtFilesToOpen.SelectedItem;
@@ -193,11 +176,9 @@ namespace Assignment04_Adriano_Melquiades {
         private void btnUpdate_Click(object sender, RoutedEventArgs e) {
 
             if (txtFilesToOpen.SelectedItem == null) {
-                MessageBox.Show("Please select and BMI datato continue");
+                MessageBox.Show("Please select and BMI data to continue");
                 return;
             }
-
-
 
             BMIData selectedItem = (BMIData)txtFilesToOpen.SelectedItem;
 
@@ -232,7 +213,6 @@ namespace Assignment04_Adriano_Melquiades {
                     MessageBox.Show("Error. Wrong gender input", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
-                //txtResult.Text = Convert.ToString(BMI);
             }
             //Imperial
             else if (selectedItem.Unit == "Imperial (inches - pounds") {
@@ -243,24 +223,25 @@ namespace Assignment04_Adriano_Melquiades {
                 } else {
                     MessageBox.Show("Error. Wrong gender input", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-
-                //txtResult.Text = Convert.ToString(BMI);
             }
 
-
             BMIServices.Update(selectedItem);
-            MessageBox.Show(selectedItem.BMIDataNumber);
+            MessageBox.Show($"{selectedItem.BMIDataNumber} update sucessfully.");
             Reset();
-
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e) {
+
+            if (txtFilesToOpen.SelectedItem == null) {
+                MessageBox.Show("Please select and BMI data to continue");
+                return;
+            }
+
             BMIData selectedData = (BMIData)txtFilesToOpen.SelectedItem;
 
             BMIServices.Delete(selectedData);
             MessageBox.Show("The file has been deleted");
             Reset();
-
         }
 
         private void btnNormal_Click(object sender, RoutedEventArgs e) {
@@ -283,7 +264,6 @@ namespace Assignment04_Adriano_Melquiades {
             MessageBox.Show($"The minimum BMI is {avg}");
         }
     }
-
 }
 
 
