@@ -20,17 +20,19 @@ namespace Assignment04_Adriano_Melquiades {
         public double Weight { get; set; }
 
         public double BMI { get; set; }
+        public string Unit { get; set; }
 
         public BMIData() {
 
         }
-        public BMIData(string gender, int age, double height, double weight, double bmi) {
+        public BMIData(string gender, int age, double height, double weight, double bmi, string unit) {
             this.BMIDataNumber = $"BMI-{Guid.NewGuid().ToString()}";
             this.Gender = gender;
             this.Age = age;
             this.Height = height;
             this.Weight = weight;
             this.BMI = bmi;
+            this.Unit = unit;
             counter++;
 
             Dictionary<string, string> dict = new Dictionary<string, string>();
@@ -56,7 +58,8 @@ namespace Assignment04_Adriano_Melquiades {
                    $"Gender: {this.Gender}\n" +
                    $"Age: {this.Age}\n" +
                    $"Height: {this.Height}\n" +
-                   $"Weight: {this.Weight}\n";
+                   $"Weight: {this.Weight}\n" +
+                   $"Unit: {this.Unit}";
         }
 
         //public enum GenderType {

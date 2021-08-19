@@ -124,8 +124,9 @@ namespace Assignment04_Adriano_Melquiades {
 
             txtResult.Text = BMI.ToString("#.##");
 
+            
 
-            var data = new BMIData(gender, age, height, weight, BMI);
+            var data = new BMIData(gender, age, height, weight, BMI, selectedOption);
 
 
             try {
@@ -190,19 +191,96 @@ namespace Assignment04_Adriano_Melquiades {
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e) {
-            //txtFilesToOpen.SelectedIndex
+
+            if (txtFilesToOpen.SelectedItem == null) {
+                MessageBox.Show("Please select and BMI datato continue");
+                return;
+            }
+
+
+
             BMIData selectedItem = (BMIData)txtFilesToOpen.SelectedItem;
+
+            int age;
+            if (!Int32.TryParse(ResultAge.Text, out age)) {
+                MessageBox.Show("Please, input the correct age.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            double height;
+            if (!Double.TryParse(ResultHeight.Text, out height)) {
+                MessageBox.Show("Please, input the correct weight.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            double weight;
+            if (!Double.TryParse(ResultWeight.Text, out weight)) {
+                MessageBox.Show("Please, input the correct height.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+
+            selectedItem.Age = age;
+            selectedItem.Height = height;
+            selectedItem.Weight = weight;
+            
+
+            //Metric
+            if (selectedItem.Unit == "Metric - (meters - Kg)") {
+                if (selectedItem.Gender == "male") {
+                    selectedItem.BMI = 66.5 + 13.75 * weight + 5.003 * height * 100 - 6.755 * age;
+                } else if (selectedItem.Gender == "female") {
+                    selectedItem.BMI = 655 + 9.563 * weight + 1.85 * height - 4.676 * age;
+                } else {
+                    MessageBox.Show("Error. Wrong gender input", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                //txtResult.Text = Convert.ToString(BMI);
+            }
+            //Imperial
+            else if (selectedItem.Unit == "Imperial (inches - pounds") {
+                if (selectedItem.Gender == "male") {
+                    selectedItem.BMI = 66 + 6.2 * weight + 12.7 * height - 6.76 * age;
+                } else if (selectedItem.Gender == "female") {
+                    selectedItem.BMI = 655 + 4.35 * weight + 4.7 * height - 4.7 * age;
+                } else {
+                    MessageBox.Show("Error. Wrong gender input", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                //txtResult.Text = Convert.ToString(BMI);
+            }
+
+
             BMIServices.Update(selectedItem);
             MessageBox.Show(selectedItem.BMIDataNumber);
+            Reset();
 
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e) {
             BMIData selectedData = (BMIData)txtFilesToOpen.SelectedItem;
+
             BMIServices.Delete(selectedData);
             MessageBox.Show("The file has been deleted");
             Reset();
 
+        }
+
+        private void btnNormal_Click(object sender, RoutedEventArgs e) {
+            var count = BMIServices.Under1500();
+            MessageBox.Show($"There is {count.ToString()} BMI less than 1500.");
+        }
+
+        private void MaxiBMI_Click(object sender, RoutedEventArgs e) {
+            var max = BMIServices.Max();
+            MessageBox.Show($"The maximum BMI is {max}");
+        }
+
+        private void MinBMI_Click(object sender, RoutedEventArgs e) {
+            var min = BMIServices.Min();
+            MessageBox.Show($"The minimum BMI is {min}");
+        }
+
+        private void average_Click(object sender, RoutedEventArgs e) {
+            var avg = BMIServices.Avg();
+            MessageBox.Show($"The minimum BMI is {avg}");
         }
     }
 
