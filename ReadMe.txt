@@ -33,12 +33,6 @@ All the data files are stores as a .xml file and each record has its own file.
 
 I also used 4 query buttons. One for BMI less than 1500, one to get the maximum BMI, one for the minimum and another one for the average. All you need to do is press the button and it will show the result on the screen.
 
-Some technical difficultties:
-- How to input an image in the application
-- How to make a splash screen
-- How to work with ComboBox
-- How to creat an Reset and Exit Button
-
 I created a class called BMIData that contains all the information to calculate the BMI and a service static class called BMIServices that contains the CRUD method.
 
 
